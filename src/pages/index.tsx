@@ -7,7 +7,9 @@ const DynamicHeader = dynamic(import("../components/main"), {
 
 const App = () =>{
   return(
+    <>
     <DynamicHeader/>
+    </>
   )
 }
 export default App;

@@ -5,14 +5,15 @@ import SpeechRecognition, {
 import { Configuration, OpenAIApi } from "openai";
 //@ts-ignore
 import Speech from "speak-tts";
-const configuration = new Configuration({
-  apiKey: "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",
-});
 
-const openai = new OpenAIApi(configuration);
 
 const Dictaphone = () => {
   const speech = new Speech();
+  const configuration = new Configuration({
+    apiKey: "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",
+  });
+  
+  const openai = new OpenAIApi(configuration);
   speech.init({
     volume: 1,
     lang: "pt-BR",
@@ -48,7 +49,7 @@ const Dictaphone = () => {
     SpeechRecognition.stopListening();
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `com este contexto de conversa: "${history}", me dê uma resposta sobre isso: "${text}"`,
+      prompt: `com este contexto de conversa: "${history}", me dê uma resposta apenas sobre isso: "${text}"`,
       temperature: 1.0,
       max_tokens: 900,
       echo: false,
