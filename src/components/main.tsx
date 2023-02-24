@@ -65,21 +65,21 @@ const Dictaphone = () => {
         queue: false,
         listeners: {
           onstart: () => {
-            //    console.log("Start utterance");
+              console.log("Start utterance");
           },
           onend: () => {
-            // console.log("End utterance");
+             console.log("End utterance");
           },
           onresume: () => {
-            //  console.log("Resume utterance");
+             console.log("Resume utterance");
           },
           onboundary: (event: any) => {
-            // console.log(
-            //   event.name +
-            //     " boundary reached after " +
-            //     event.elapsedTime +
-            //     " milliseconds."
-            // );
+            console.log(
+              event.name +
+                " boundary reached after " +
+                event.elapsedTime +
+                " milliseconds."
+            );
           },
         },
       })
@@ -89,7 +89,7 @@ const Dictaphone = () => {
         startListening();
       })
       .catch((e: any) => {
-        // console.error("An error occurred :", e);
+         console.error("An error occurred :", e);
       });
   };
 
@@ -104,7 +104,7 @@ const Dictaphone = () => {
     }
   }, [finalTranscript]);
 
-  if (!isMicrophoneAvailable) return <span style={{color: "white"}}>BrMIcrophone not Available</span>;
+  if (!isMicrophoneAvailable) return <span style={{color: "white"}}>Microphone not Available</span>;
   if (!browserSupportsSpeechRecognition) {
     return <span style={{color: "white"}}>Browser doesn't support speech recognition.</span>;
   }
