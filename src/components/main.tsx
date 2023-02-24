@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
+
 } from "react-speech-recognition";
 import { Configuration, OpenAIApi } from "openai";
 //@ts-ignore
@@ -8,9 +9,19 @@ import Speech from "speak-tts";
 
 
 const Dictaphone = () => {
+ 
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    finalTranscript,
+    browserSupportsSpeechRecognition,
+    isMicrophoneAvailable,
+  } = useSpeechRecognition();
+
   const speech = new Speech();
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
   
   const openai = new OpenAIApi(configuration);
@@ -21,14 +32,6 @@ const Dictaphone = () => {
     pitch: 1,
     voice: "Google português do Brasil",
   });
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-    finalTranscript,
-    browserSupportsSpeechRecognition,
-    isMicrophoneAvailable,
-  } = useSpeechRecognition();
 
   const [loading, setLoading] = useState(false);
   const [init, setInit] = useState(false);
