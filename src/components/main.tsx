@@ -104,7 +104,7 @@ const Dictaphone = () => {
     }
   }, [finalTranscript]);
 
-  if (!isMicrophoneAvailable) return null;
+  if (!isMicrophoneAvailable) return <span>BrMIcrophone not Available</span>;
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
