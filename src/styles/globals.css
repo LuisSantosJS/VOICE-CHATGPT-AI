@@ -105,3 +105,18 @@ a {
     color-scheme: dark;
   }
 }
+
+
+
+
+.center-main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+p, span {
+  font-size: 30px;
+}
